@@ -1,0 +1,3 @@
+[submodule "data/obsidian-vault"]
+	path = data/obsidian-vault
+	url = https://github.com/mariomeissner/obsidian-vault
