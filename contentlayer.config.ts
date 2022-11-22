@@ -31,7 +31,7 @@ const computedFields: ComputedFields = {
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'obsidian-vault/Blog/**/*.md',
-  contentType: 'markdown',
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
@@ -40,28 +40,9 @@ export const Blog = defineDocumentType(() => ({
     draft: { type: 'boolean' },
     summary: { type: 'string' },
     images: { type: 'list', of: { type: 'string' } },
-    authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
-  },
-  computedFields,
-}))
-
-export const Authors = defineDocumentType(() => ({
-  name: 'Authors',
-  filePathPattern: 'authors/**/*.mdx',
-  contentType: 'mdx',
-  fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    twitter: { type: 'string' },
-    linkedin: { type: 'string' },
-    github: { type: 'string' },
-    layout: { type: 'string' },
   },
   computedFields,
 }))
@@ -87,7 +68,25 @@ export const Home = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Home],
+  documentTypes: [Blog, Home],
+  // markdown: {
+  //   remarkPlugins: [
+  //     remarkExtractFrontmatter,
+  //     remarkGfm,
+  //     remarkCodeTitles,
+  //     [remarkFootnotes, { inlineNotes: true }],
+  //     remarkMath,
+  //     remarkImgToJsx,
+  //   ],
+  //   rehypePlugins: [
+  //     rehypeSlug,
+  //     rehypeAutolinkHeadings,
+  //     rehypeKatex,
+  //     [rehypeCitation, { path: path.join(root, 'data') }],
+  //     [rehypePrismPlus, { ignoreMissing: true }],
+  //     rehypePresetMinify,
+  //   ],
+  // }, 
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

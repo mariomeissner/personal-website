@@ -8,14 +8,13 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { ReactNode } from 'react'
 import { useRouter } from 'next/router'
-import {getPageTitle } from 'scripts/utils'
+import { getPageTitle } from '@/lib/utils/pageTitle'
 
 interface Props {
   children: ReactNode
 }
 
 const LayoutWrapper = ({ children }: Props) => {
-
   const router = useRouter()
   const pageName = getPageTitle(router.pathname)
 
@@ -26,9 +25,7 @@ const LayoutWrapper = ({ children }: Props) => {
           <div>
             <Link href="/" aria-label={pageName}>
               <div className="flex items-center justify-between">
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
-                  {pageName}
-                  </div>
+                <div className="hidden h-6 text-2xl font-semibold sm:block">{pageName}</div>
               </div>
             </Link>
           </div>
