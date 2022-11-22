@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Johannes Mario Meissner\'s Personal Website',
+  title: "Johannes Mario Meissner's Personal Website",
   author: 'Johannes Mario Meissner',
   // headerTitle: 'Johannes Mario Meissner',
   description: 'A personal website with blog and digital garden.',
@@ -25,6 +25,7 @@ const siteMetadata = {
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    useVercelAnalytics: true,
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue
