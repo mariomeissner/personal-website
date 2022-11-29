@@ -2,11 +2,11 @@ import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
 import { ReactNode } from 'react'
-import type { Home } from 'contentlayer/generated'
+import type { About, about } from 'contentlayer/generated'
 
 interface Props {
   children: ReactNode
-  content: Omit<Home, '_id' | '_raw' | 'body'>
+  content: Omit<About, '_id' | '_raw' | 'body'>
 }
 
 export default function HomeLayout({ children, content }: Props) {
@@ -17,7 +17,7 @@ export default function HomeLayout({ children, content }: Props) {
       <PageSEO title={`Home - ${name}`} description={`Home page of ${name}`} />
       <div className="divide-y">
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
-          <div className="flex flex-col items-center pt-8">
+          <div className="flex flex-col items-center text-center pt-8">
             <Image
               src={avatar}
               alt="avatar"

@@ -48,8 +48,8 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export const Home = defineDocumentType(() => ({
-  name: 'Home',
-  filePathPattern: 'home/home.mdx',
+  name: 'About',
+  filePathPattern: 'about.mdx',
   contentType: 'mdx',
   isSingleton: true,
   fields: {

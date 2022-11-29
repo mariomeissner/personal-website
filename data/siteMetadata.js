@@ -1,5 +1,6 @@
 const siteMetadata = {
   title: "Johannes Mario Meissner's Personal Website",
+  menuBarTitle: "Mario's Digital Garden",
   author: 'Johannes Mario Meissner',
   // headerTitle: 'Johannes Mario Meissner',
   description: 'A personal website with blog and digital garden.',
