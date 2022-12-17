@@ -2,3 +2,4 @@
 .contentlayer
 node_modules
 public/*.xml
+public/static/images
