@@ -6,6 +6,6 @@ export const getStaticProps = async () => {
   return { props: { about } }
 }
 
-export default function Home({ about }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function About({ about }: InferGetStaticPropsType<typeof getStaticProps>) {
   return <MDXLayoutRenderer layout={'AboutLayout'} content={about} />
 }

@@ -51,7 +51,7 @@ export default function Blog({
       ) : (
         <div className="mt-24 text-center">
           <PageTitle>
-            Under Construction{' '}
+            Under Construction 
             <span role="img" aria-label="roadwork sign">
               🚧
             </span>

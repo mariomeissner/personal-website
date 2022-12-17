@@ -64,6 +64,9 @@ module.exports = withContentlayer(
     eslint: {
       dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
     },
+    async redirects() {
+      return []
+    },
     async headers() {
       return [
         {

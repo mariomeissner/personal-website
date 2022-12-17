@@ -1,3 +1,4 @@
 .next
 .contentlayer
 node_modules
+public/*.xml

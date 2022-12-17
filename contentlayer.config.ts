@@ -47,7 +47,7 @@ export const Blog = defineDocumentType(() => ({
   computedFields,
 }))
 
-export const Home = defineDocumentType(() => ({
+export const About = defineDocumentType(() => ({
   name: 'About',
   filePathPattern: 'about.mdx',
   contentType: 'mdx',
@@ -56,37 +56,27 @@ export const Home = defineDocumentType(() => ({
     name: { type: 'string', required: true },
     avatar: { type: 'string' },
     occupation: { type: 'string' },
-    company: { type: 'string' },
     email: { type: 'string' },
     twitter: { type: 'string' },
     linkedin: { type: 'string' },
     github: { type: 'string' },
     layout: { type: 'string' },
   },
-  computedFields,
+  // computedFields,
+}))
+
+export const Home = defineDocumentType(() => ({
+  name: 'Home',
+  filePathPattern: 'home.mdx',
+  contentType: 'mdx',
+  isSingleton: true,
+  fields: {},
+  // computedFields,
 }))
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Home],
-  // markdown: {
-  //   remarkPlugins: [
-  //     remarkExtractFrontmatter,
-  //     remarkGfm,
-  //     remarkCodeTitles,
-  //     [remarkFootnotes, { inlineNotes: true }],
-  //     remarkMath,
-  //     remarkImgToJsx,
-  //   ],
-  //   rehypePlugins: [
-  //     rehypeSlug,
-  //     rehypeAutolinkHeadings,
-  //     rehypeKatex,
-  //     [rehypeCitation, { path: path.join(root, 'data') }],
-  //     [rehypePrismPlus, { ignoreMissing: true }],
-  //     rehypePresetMinify,
-  //   ],
-  // }, 
+  documentTypes: [Blog, Home, About],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

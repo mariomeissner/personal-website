@@ -1,6 +1,11 @@
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { InferGetStaticPropsType } from 'next'
+import { home } from 'contentlayer/generated'
 
-export default function Home({ home }) {
-  return <div>This place is eerily empty for now... Please visit again later!</div>
+export const getStaticProps = async () => {
+  return { props: { home } }
+}
+
+export default function Home({ home }: InferGetStaticPropsType<typeof getStaticProps>) {
+  return <MDXLayoutRenderer layout={'HomeLayout'} content={home} />
 }

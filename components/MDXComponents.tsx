@@ -8,11 +8,11 @@ import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
-import type { Blog, About } from 'contentlayer/generated'
+import type { Blog, About, Home } from 'contentlayer/generated'
 
 interface MDXLayout {
   layout: string
-  content: Blog | About
+  content: Blog | Home | About
   [key: string]: unknown
 }
 
