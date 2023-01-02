@@ -1,6 +1,4 @@
 // @ts-check
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
@@ -31,6 +29,8 @@ module.exports = {
       fontFamily: {
         //@ts-ignore
         sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
+        Josefin: ['Josefin Sans', ...defaultTheme.fontFamily.sans],
+        audiowide: ['"Audiowide"'],
       },
       colors: {
         primary: colors.teal,

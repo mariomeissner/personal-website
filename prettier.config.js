@@ -6,4 +6,7 @@ module.exports = {
   useTabs: false,
   trailingComma: 'es5',
   bracketSpacing: true,
+  importOrder: ['^@/(.*)$'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
 }
