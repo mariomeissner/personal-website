@@ -1,9 +1,10 @@
+import { allBlogs } from 'contentlayer/generated'
+import { InferGetStaticPropsType } from 'next'
+
+import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
-import { PageSEO } from '@/components/SEO'
-import { sortedBlogPost, allCoreContent } from '@/lib/utils/contentlayer'
-import { InferGetStaticPropsType } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
 export const POSTS_PER_PAGE = 5
 

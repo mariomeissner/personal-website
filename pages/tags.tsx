@@ -1,11 +1,12 @@
+import { allBlogs } from 'contentlayer/generated'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import kebabCase from '@/lib/utils/kebabCase'
 import { getAllTags } from '@/lib/utils/contentlayer'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+import kebabCase from '@/lib/utils/kebabCase'
 
 // TODO: refactor into contentlayer once compute over all docs is enabled
 

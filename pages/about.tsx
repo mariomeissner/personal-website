@@ -1,6 +1,7 @@
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { InferGetStaticPropsType } from 'next'
 import { about } from 'contentlayer/generated'
+import { InferGetStaticPropsType } from 'next'
+
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
 
 export const getStaticProps = async () => {
   return { props: { about } }

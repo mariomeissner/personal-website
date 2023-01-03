@@ -1,10 +1,11 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { ComponentProps, useState } from 'react'
-import Pagination from '@/components/Pagination'
-import formatDate from '@/lib/utils/formatDate'
-import { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+import { ComponentProps, useState } from 'react'
+
+import Link from '@/components/Link'
+import Pagination from '@/components/Pagination'
+import Tag from '@/components/Tag'
+import { CoreContent } from '@/lib/utils/contentlayer'
+import formatDate from '@/lib/utils/formatDate'
 
 interface Props {
   posts: CoreContent<Blog>[]

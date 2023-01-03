@@ -1,7 +1,8 @@
-import siteMetadata from '@/data/siteMetadata'
-import dynamic from 'next/dynamic'
-import { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+import dynamic from 'next/dynamic'
+
+import siteMetadata from '@/data/siteMetadata'
+import { CoreContent } from '@/lib/utils/contentlayer'
 
 interface Props {
   frontMatter: CoreContent<Blog>

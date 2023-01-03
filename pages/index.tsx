@@ -1,9 +1,10 @@
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { InferGetStaticPropsType } from 'next'
 import { allBlogs, home } from 'contentlayer/generated'
-import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
+import { InferGetStaticPropsType } from 'next'
+
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import AboutLayout from '@/layouts/AboutLayout'
 import HomeLayout from '@/layouts/HomeLayout'
+import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
 const PREVIEW_POSTS = 3
 

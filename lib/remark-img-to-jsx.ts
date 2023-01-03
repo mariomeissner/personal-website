@@ -1,7 +1,7 @@
-import { Parent, Node, Literal } from 'unist'
-import { visit } from 'unist-util-visit'
-import sizeOf from 'image-size'
 import fs from 'fs'
+import sizeOf from 'image-size'
+import { Literal, Node, Parent } from 'unist'
+import { visit } from 'unist-util-visit'
 
 type ImageNode = Parent & {
   url: string
@@ -11,7 +11,7 @@ type ImageNode = Parent & {
 }
 
 export default function remarkImgToJsx() {
-  console.log("Running remarkImgToJsx")
+  console.log('Running remarkImgToJsx')
   return (tree: Node) => {
     visit(
       tree,
@@ -38,7 +38,6 @@ export default function remarkImgToJsx() {
               { type: 'mdxJsxAttribute', name: 'width', value: dimensions.width },
               { type: 'mdxJsxAttribute', name: 'height', value: dimensions.height },
             ])
-
 
           // Change node type from p to div to avoid nesting error
           node.type = 'div'

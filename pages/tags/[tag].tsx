@@ -1,10 +1,11 @@
+import { allBlogs } from 'contentlayer/generated'
+import { InferGetStaticPropsType } from 'next'
+
 import { TagSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
+import { allCoreContent, getAllTags } from '@/lib/utils/contentlayer'
 import kebabCase from '@/lib/utils/kebabCase'
-import { getAllTags, allCoreContent } from '@/lib/utils/contentlayer'
-import { InferGetStaticPropsType } from 'next'
-import { allBlogs } from 'contentlayer/generated'
 
 export async function getStaticPaths() {
   const tags = await getAllTags(allBlogs)

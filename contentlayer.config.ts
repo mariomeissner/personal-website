@@ -1,21 +1,21 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer/source-files'
-import readingTime from 'reading-time'
-import path from 'path'
-// Remark packages
-import remarkGfm from 'remark-gfm'
-import remarkFootnotes from 'remark-footnotes'
-import remarkMath from 'remark-math'
-import remarkExtractFrontmatter from './lib/remark-extract-frontmatter'
 import remarkCodeTitles from './lib/remark-code-title'
-import { extractTocHeadings } from './lib/remark-toc-headings'
+import remarkExtractFrontmatter from './lib/remark-extract-frontmatter'
 import remarkImgToJsx from './lib/remark-img-to-jsx'
+import { extractTocHeadings } from './lib/remark-toc-headings'
+import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
+import path from 'path'
+import readingTime from 'reading-time'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeCitation from 'rehype-citation'
+import rehypeKatex from 'rehype-katex'
+import rehypePresetMinify from 'rehype-preset-minify'
+import rehypePrismPlus from 'rehype-prism-plus'
 // Rehype packages
 import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeKatex from 'rehype-katex'
-import rehypeCitation from 'rehype-citation'
-import rehypePrismPlus from 'rehype-prism-plus'
-import rehypePresetMinify from 'rehype-preset-minify'
+import remarkFootnotes from 'remark-footnotes'
+// Remark packages
+import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 
 const root = process.cwd()
 
@@ -43,6 +43,17 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+  },
+  computedFields,
+}))
+
+export const Entry = defineDocumentType(() => ({
+  name: 'Entry',
+  filePathPattern: 'obsidian-vault/Garden/**/*.md',
+  contentType: 'mdx',
+  fields: {
+    lastmod: { type: 'date' },
+    layout: { type: 'string' },
   },
   computedFields,
 }))
@@ -76,7 +87,7 @@ export const Home = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Home, About],
+  documentTypes: [Blog, Entry, Home, About],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

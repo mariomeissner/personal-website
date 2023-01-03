@@ -1,8 +1,9 @@
-import PageTitle from '@/components/PageTitle'
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { sortedBlogPost, coreContent } from '@/lib/utils/contentlayer'
-import { InferGetStaticPropsType } from 'next'
 import { allBlogs } from 'contentlayer/generated'
+import { InferGetStaticPropsType } from 'next'
+
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import PageTitle from '@/components/PageTitle'
+import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -33,11 +34,7 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export default function Blog({
-  post,
-  prev,
-  next,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Blog({ post, prev, next }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       {'draft' in post && post.draft !== true ? (
@@ -51,7 +48,7 @@ export default function Blog({
       ) : (
         <div className="mt-24 text-center">
           <PageTitle>
-            Under Construction 
+            Under Construction
             <span role="img" aria-label="roadwork sign">
               🚧
             </span>

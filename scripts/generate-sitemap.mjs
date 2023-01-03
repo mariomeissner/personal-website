@@ -1,8 +1,8 @@
+import { allBlogs } from '../.contentlayer/generated/index.mjs'
+import siteMetadata from '../data/siteMetadata.js'
 import { writeFileSync } from 'fs'
 import globby from 'globby'
 import prettier from 'prettier'
-import siteMetadata from '../data/siteMetadata.js'
-import { allBlogs } from '../.contentlayer/generated/index.mjs'
 
 async function generate() {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')

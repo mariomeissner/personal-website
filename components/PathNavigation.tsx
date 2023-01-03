@@ -28,7 +28,9 @@ export default function PathNavigation() {
         </a>
       </Link>
       <Link href={`/${path}`} aria-label={path}>
-        <a className="rounded px-2 transition hover:bg-gray-300 dark:hover:bg-gray-600">/{pathname}</a>
+        <a className="rounded px-2 transition hover:bg-gray-300 dark:hover:bg-gray-600">
+          /{pathname}
+        </a>
       </Link>
     </div>
   )

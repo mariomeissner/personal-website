@@ -1,18 +1,19 @@
 /* eslint-disable react/display-name */
-import React from 'react'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import { ComponentMap } from 'mdx-bundler/client'
-import { coreContent } from '@/lib/utils/contentlayer'
 import Image from './Image'
 import CustomLink from './Link'
-import TOCInline from './TOCInline'
-import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
-import type { Blog, About, Home } from 'contentlayer/generated'
+import Pre from './Pre'
+import TOCInline from './TOCInline'
+import type { About, Blog, Entry, Home } from 'contentlayer/generated'
+import { ComponentMap } from 'mdx-bundler/client'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import React from 'react'
+
+import { coreContent } from '@/lib/utils/contentlayer'
 
 interface MDXLayout {
   layout: string
-  content: Blog | Home | About
+  content: Entry | Blog | Home | About
   [key: string]: unknown
 }
 
