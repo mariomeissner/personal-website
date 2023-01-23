@@ -1,8 +1,7 @@
 import Footer from './Footer'
 import Link from './Link'
-import MenuBar from './MenuBar'
+import NavBar from './NavBar'
 import MobileNav from './MobileNav'
-import SectionContainer from './SectionContainer'
 import ThemeSwitch from './ThemeSwitch'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,18 +18,20 @@ interface Props {
   children: ReactNode
 }
 
-const LayoutWrapper = ({ children }: Props) => {
+const PageWrapper = ({ children }: Props) => {
   const router = useRouter()
 
   return (
-    <SectionContainer>
-      <div className="flex h-screen flex-col justify-between">
-        <MenuBar />
-        <main className="mb-auto">{children}</main>
-        <Footer />
+    <>
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+        <NavBar />
+        <div className="flex h-screen flex-col justify-between">
+          <main className="mb-auto">{children}</main>
+          <Footer />
+        </div>
       </div>
-    </SectionContainer>
+    </>
   )
 }
 
-export default LayoutWrapper
+export default PageWrapper

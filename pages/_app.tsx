@@ -4,7 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import LayoutWrapper from '@/components/LayoutWrapper'
+import PageWrapper from '@/components/PageWrapper'
 import Analytics from '@/components/analytics'
 import '@/css/prism.css'
 import '@/css/tailwind.css'
@@ -17,9 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <Analytics />
-      <LayoutWrapper>
+      <PageWrapper>
         <Component {...pageProps} />
-      </LayoutWrapper>
+      </PageWrapper>
     </ThemeProvider>
   )
 }

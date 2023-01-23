@@ -1,7 +1,7 @@
 import { allBlogs } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import { MDXRenderer } from '@/components/MDXComponents'
 import PageTitle from '@/components/PageTitle'
 import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
@@ -38,7 +38,7 @@ export default function Blog({ post, prev, next }: InferGetStaticPropsType<typeo
   return (
     <>
       {'draft' in post && post.draft !== true ? (
-        <MDXLayoutRenderer
+        <MDXRenderer
           layout={post.layout || DEFAULT_LAYOUT}
           toc={post.toc}
           content={post}

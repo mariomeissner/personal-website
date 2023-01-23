@@ -1,7 +1,7 @@
 import { allEntries } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import { MDXRenderer } from '@/components/MDXComponents'
 import PageTitle from '@/components/PageTitle'
 import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
@@ -27,6 +27,6 @@ export const getStaticProps = async ({ params }) => {
 
 export default function Entry({ entry }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <MDXLayoutRenderer layout={entry.layout || DEFAULT_LAYOUT} toc={entry.toc} content={entry} />
+    <MDXRenderer layout={entry.layout || DEFAULT_LAYOUT} toc={entry.toc} content={entry} />
   )
 }

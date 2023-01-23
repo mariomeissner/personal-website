@@ -13,7 +13,7 @@ interface Props {
 
 export default function PostList({ posts }: Props) {
   return (
-    <>
+    <div>
       <h2 className="text-2xl font-bold">Recent Posts</h2>
       <ul>
         {!posts.length && 'No posts found.'}
@@ -46,6 +46,6 @@ export default function PostList({ posts }: Props) {
           )
         })}
       </ul>
-    </>
+    </div>
   )
 }
