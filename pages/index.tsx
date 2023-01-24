@@ -33,9 +33,11 @@ export default function Home({ preview_posts }: InferGetStaticPropsType<typeof g
         Welcome! I&apos;m a full stack software enginner and machine learning researcher based in
         Tokyo. Currently I work for Indeed Japan. You have found my digital garden, a place where I
         write blog posts and make my notes public. You can read more about me in the{' '}
-        <Link className="font-bold italic text-purple-500" href="/about">
-          About
-        </Link>{' '}
+        <span>
+          <Link className="font-bold text-purple-400" href="/about">
+            About
+          </Link>
+        </span>{' '}
         page.
       </p>
       <div className="mt-12 flex flex-row justify-between">

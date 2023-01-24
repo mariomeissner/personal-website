@@ -22,10 +22,12 @@ interface Props {
 function NavBar() {
   return (
     <nav className="flex items-center justify-between py-2 px-4 my-6 lg:px-32 text-md bg-slate-800 inset-1 border-2 border-slate-700 rounded-xl">
-      <Link href="/" aria-label="home">
-        <a className="mb-0.5 rounded p-2 transition hover:bg-slate-300 dark:hover:bg-gray-600">
-          <FontAwesomeIcon icon={faHouse} />
-        </a>
+      <Link
+        href="/"
+        aria-label="home"
+        className="mb-0.5 rounded p-2 transition hover:bg-slate-300 dark:hover:bg-gray-600"
+      >
+        <FontAwesomeIcon icon={faHouse} />
       </Link>
       {/* <PathNavigation /> */}
       <div className="flex items-center leading-5">
