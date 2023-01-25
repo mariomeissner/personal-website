@@ -21,11 +21,11 @@ interface Props {
 
 function NavBar() {
   return (
-    <nav className="flex items-center justify-between py-2 px-4 my-6 lg:px-32 text-md bg-slate-800 inset-1 border-2 border-slate-700 rounded-xl">
+    <nav className="flex items-center justify-between py-2 px-4 my-6 text-md bg-slate-800 inset-1 border-2 border-slate-700 rounded-xl">
       <Link
         href="/"
         aria-label="home"
-        className="mb-0.5 rounded p-2 transition hover:bg-slate-300 dark:hover:bg-gray-600"
+        className="mb-0.5 rounded px-3 py-2 transition hover:bg-slate-300 dark:hover:bg-gray-600"
       >
         <FontAwesomeIcon icon={faHouse} />
       </Link>
@@ -36,7 +36,7 @@ function NavBar() {
             <Link
               key={link.title}
               href={link.href}
-              className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4 hover:bg-slate-300 dark:hover:bg-gray-600"
+              className="rounded font-medium text-gray-900 dark:text-gray-100 sm:p-3 hover:bg-slate-300 dark:hover:bg-gray-600"
             >
               {link.title}
             </Link>
