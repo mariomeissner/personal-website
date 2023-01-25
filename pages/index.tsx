@@ -1,4 +1,4 @@
-import { About, Blog, about, allBlogs, home } from 'contentlayer/generated'
+import { About, Blog, about, allBlogs } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { ReactNode } from 'react'

@@ -37,14 +37,8 @@ export const getStaticProps = async ({ params }) => {
 export default function Blog({ post, prev, next }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      {'draft' in post && post.draft !== true ? (
-        <MDXRenderer
-          layout={post.layout || DEFAULT_LAYOUT}
-          toc={post.toc}
-          content={post}
-          prev={prev}
-          next={next}
-        />
+      {post && post.body.code && 'draft' in post && post.draft !== true ? (
+        <MDXRenderer code={post.body.code} />
       ) : (
         <div className="mt-24 text-center">
           <PageTitle>

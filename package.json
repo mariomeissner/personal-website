@@ -6,7 +6,7 @@
     "start": "next dev",
     "dev": "ln -sfn ../../data/obsidian-vault/Images ./public/static/images && next dev",
     "build": "cp -r data/obsidian-vault/Images public/static/images && next build",
-    "postbuild": "npm run sitemap && npm run rss",
+    "postbuild": "yarn run sitemap && yarn run rss",
     "sitemap": "cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-sitemap.mjs",
     "rss": "cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs",
     "serve": "next start",

@@ -5,11 +5,11 @@ import Image from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import SectionContainer from '@/components/SectionContainer'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
 import siteMetadata from '@/data/siteMetadata'
 import { CoreContent } from '@/lib/utils/contentlayer'
+import PageWrapper from '@/components/PageWrapper'
 
 const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
 const discussUrl = (slug) =>
@@ -35,7 +35,7 @@ export default function PostLayout({ content, next, prev, children }: Props) {
   const { slug } = content
 
   return (
-    <SectionContainer>
+    <PageWrapper>
       {/* TODO: SEO */}
       <ScrollTopAndComment />
       <article>
@@ -70,11 +70,11 @@ export default function PostLayout({ content, next, prev, children }: Props) {
                 {` • `}
                 <Link href={editUrl(slug)}>{'View on GitHub'}</Link>
               </div>
-              <Comments frontMatter={content} />
+              {/* <Comments frontMatter={content} /> */}
             </div>
           </div>
         </div>
       </article>
-    </SectionContainer>
+    </PageWrapper>
   )
 }

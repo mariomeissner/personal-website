@@ -5,6 +5,8 @@ import { mkdirSync, writeFileSync } from 'fs'
 import GithubSlugger from 'github-slugger'
 import path from 'path'
 
+const slugger = new GithubSlugger()
+
 // TODO: refactor into contentlayer once compute over all docs is enabled
 export async function getAllTags() {
   const tagCount = {}
@@ -12,7 +14,7 @@ export async function getAllTags() {
   allBlogs.forEach((file) => {
     if (file.tags && file.draft !== true) {
       file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
+        const formattedTag = slugger.slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -56,7 +58,8 @@ const generateRss = (posts, page = 'feed.xml') => `
 async function generate() {
   // RSS for blog post
   if (allBlogs.length > 0) {
-    const rss = generateRss(allBlogs)
+    const posts = allBlogs.filter((post) => post.draft === false)
+    const rss = generateRss(posts)
     writeFileSync('./public/feed.xml', rss)
   }
 
@@ -66,8 +69,9 @@ async function generate() {
     const tags = await getAllTags()
     for (const tag of Object.keys(tags)) {
       const filteredPosts = allBlogs.filter(
-        (post) => post.draft !== true && post.tags.map((t) => GithubSlugger.slug(t)).includes(tag)
+        (post) => post.draft !== true && post.tags.map((t) => slugger.slug(t)).includes(tag)
       )
+      if (filteredPosts.length === 0) continue
       const rss = generateRss(filteredPosts, `tags/${tag}/feed.xml`)
       const rssPath = path.join('public', 'tags', tag)
       mkdirSync(rssPath, { recursive: true })

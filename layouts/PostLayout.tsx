@@ -4,9 +4,9 @@ import { ReactNode } from 'react'
 import Image from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
+import PageWrapper from '@/components/PageWrapper'
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import SectionContainer from '@/components/SectionContainer'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
 import siteMetadata from '@/data/siteMetadata'
@@ -36,7 +36,7 @@ export default function PostLayout({ content, next, prev, children }: Props) {
   const { slug, date, title, tags } = content
 
   return (
-    <SectionContainer>
+    <PageWrapper>
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...content} />
       <ScrollTopAndComment />
       <article>
@@ -126,6 +126,6 @@ export default function PostLayout({ content, next, prev, children }: Props) {
           </div>
         </div>
       </article>
-    </SectionContainer>
+    </PageWrapper>
   )
 }

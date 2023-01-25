@@ -1,7 +1,7 @@
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import siteMetadata from '../data/siteMetadata.js'
 import { writeFileSync } from 'fs'
-import globby from 'globby'
+import { globby } from 'globby'
 import prettier from 'prettier'
 
 async function generate() {

@@ -26,7 +26,15 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function Entry({ entry }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
-    <MDXRenderer layout={entry.layout || DEFAULT_LAYOUT} toc={entry.toc} content={entry} />
-  )
+  <>
+  {entry && entry.body.code ? (
+    <MDXRenderer code={entry.body.code} />
+  ) : (
+    <div className="mt-24 text-center">
+      <PageTitle>
+        This garden entry is empty!
+      </PageTitle>
+    </div>
+  )}
+</>
 }

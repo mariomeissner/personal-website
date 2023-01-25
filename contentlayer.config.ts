@@ -32,12 +32,13 @@ export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'obsidian-vault/Blog/**/*.md',
   contentType: 'mdx',
+  
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
     tags: { type: 'list', of: { type: 'string' } },
     lastmod: { type: 'date' },
-    draft: { type: 'boolean' },
+    draft: { type: 'boolean', default: false },
     summary: { type: 'string' },
     images: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
@@ -76,18 +77,18 @@ export const About = defineDocumentType(() => ({
   // computedFields,
 }))
 
-export const Home = defineDocumentType(() => ({
-  name: 'Home',
-  filePathPattern: 'home.mdx',
-  contentType: 'mdx',
-  isSingleton: true,
-  fields: {},
-  // computedFields,
-}))
+// export const Home = defineDocumentType(() => ({
+//   name: 'Home',
+//   filePathPattern: 'home.mdx',
+//   contentType: 'mdx',
+//   isSingleton: true,
+//   fields: {},
+//   // computedFields,
+// }))
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Entry, Home, About],
+  documentTypes: [Blog, Entry, About],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
