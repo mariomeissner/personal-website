@@ -2,7 +2,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
-/** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
+/** @type {import("tailwindcss/types/config").Config } */
 module.exports = {
   experimental: {
     optimizeUniversalDefaults: true,
@@ -15,8 +15,20 @@ module.exports = {
     './data/**/*.mdx',
   ],
   darkMode: 'class',
+  variants: {
+    animation: ['responsive', 'hover', 'focus'],
+  },
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
       spacing: {
         '9/16': '56.25%',
       },

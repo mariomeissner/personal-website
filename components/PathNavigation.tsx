@@ -14,7 +14,6 @@ export default function PathNavigation() {
   // useEffect(() => {
   //     if (router.isReady) {
   //         setPath(router.asPath)
-  //         console.log(path)
   //     }
   // }, [router.isReady, router.asPath, path])
   const path = router.pathname.split('/')[1]

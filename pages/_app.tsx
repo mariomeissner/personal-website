@@ -1,4 +1,4 @@
-import '@fontsource/inter/variable-full.css'
+// import '@fontsource/inter/variable-full.css'
 import 'katex/dist/katex.css'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'

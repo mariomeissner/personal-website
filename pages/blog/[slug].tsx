@@ -9,21 +9,20 @@ const DEFAULT_LAYOUT = 'PostLayout'
 
 export async function getStaticPaths() {
   return {
-    paths: allBlogs.map((p) => ({ params: { slug: p.slug.split('/') } })),
+    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   }
 }
 
 export const getStaticProps = async ({ params }) => {
-  const slug = (params.slug as string[]).join('/')
+  const slug = params.slug
   const sortedPosts = sortedBlogPost(allBlogs)
   const postIndex = sortedPosts.findIndex((p) => p.slug === slug)
-  // TODO: Refactor this extraction of coreContent
   const prevContent = sortedPosts[postIndex + 1] || null
-  const prev = prevContent ? coreContent(prevContent) : null
+  const prev = prevContent ? prevContent : null
   const nextContent = sortedPosts[postIndex - 1] || null
-  const next = nextContent ? coreContent(nextContent) : null
-  const post = sortedPosts.find((p) => p.slug === slug)
+  const next = nextContent ? nextContent : null
+  const post = sortedPosts[postIndex] || null
 
   return {
     props: {
@@ -42,7 +41,7 @@ export default function Blog({ post, prev, next }: InferGetStaticPropsType<typeo
       ) : (
         <div className="mt-24 text-center">
           <PageTitle>
-            Under Construction
+            This blog entry is not available right now!{' '}
             <span role="img" aria-label="roadwork sign">
               🚧
             </span>

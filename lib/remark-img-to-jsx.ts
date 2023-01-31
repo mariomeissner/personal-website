@@ -11,7 +11,6 @@ type ImageNode = Parent & {
 }
 
 export default function remarkImgToJsx() {
-  console.log('Running remarkImgToJsx')
   return (tree: Node) => {
     visit(
       tree,
@@ -28,7 +27,6 @@ export default function remarkImgToJsx() {
         if (fs.existsSync(`${process.cwd()}/public/static/images/${imageFileName}`)) {
           const dimensions = sizeOf(`${process.cwd()}/public/static/images/${imageFileName}`)
 
-          console.log(imageNode.url)
           // Convert original node to next/image
           ;(imageNode.type = 'mdxJsxFlowElement'),
             (imageNode.name = 'Image'),

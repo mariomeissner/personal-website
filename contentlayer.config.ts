@@ -3,6 +3,7 @@ import remarkExtractFrontmatter from './lib/remark-extract-frontmatter'
 import remarkImgToJsx from './lib/remark-img-to-jsx'
 import { extractTocHeadings } from './lib/remark-toc-headings'
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
+import GithubSlugger from 'github-slugger'
 import path from 'path'
 import readingTime from 'reading-time'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -18,21 +19,23 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 
 const root = process.cwd()
+const slugger = new GithubSlugger()
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+  filename: { type: 'string', resolve: (doc) => doc._raw.flattenedPath.split('/').reverse()[0] },
   slug: {
     type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    resolve: (doc) => slugger.slug(doc._raw.flattenedPath.split('/').reverse()[0]),
   },
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'obsidian-vault/Blog/**/*.md',
   contentType: 'mdx',
-  
+
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
