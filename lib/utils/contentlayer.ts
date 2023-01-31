@@ -1,7 +1,7 @@
 import type { Blog, DocumentTypes, Entry } from 'contentlayer/generated'
+import { LocalDocument } from 'contentlayer/source-files'
 
 import kebabCase from '@/lib/utils/kebabCase'
-import { LocalDocument } from 'contentlayer/source-files'
 
 export function dateSortDesc(a: string, b: string) {
   if (a > b) return -1

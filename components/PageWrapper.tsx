@@ -1,7 +1,7 @@
 import Footer from './Footer'
 import Link from './Link'
-import NavBar from './NavBar'
 import MobileNav from './MobileNav'
+import NavBar from './NavBar'
 import ThemeSwitch from './ThemeSwitch'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
