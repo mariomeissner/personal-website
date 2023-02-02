@@ -29,7 +29,7 @@ export default function Home({ preview_posts }: InferGetStaticPropsType<typeof g
       <h1 className="bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text p-4 text-4xl font-extrabold text-transparent">
         Mario&apos;s Blog & Digital Garden
       </h1>
-      <p className="text-justify font-light max-w-xl">
+      <p className="max-w-xl text-justify font-light">
         Welcome! I&apos;m a full stack software enginner and machine learning researcher based in
         Tokyo. Currently I work for Indeed Japan. You have found my digital garden, a place where I
         write blog posts and make my notes public. You can read more about me in the{' '}

@@ -23,7 +23,7 @@ const PageWrapper = ({ children }: Props) => {
 
   return (
     <>
-      <div className="mx-auto px-4 max-w-4xl">
+      <div className="mx-auto max-w-4xl px-4">
         <NavBar />
         <div className="flex h-screen flex-col justify-between">
           <main className="mb-auto">{children}</main>

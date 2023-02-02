@@ -21,7 +21,7 @@ interface Props {
 
 function NavBar() {
   return (
-    <nav className="flex items-center justify-between py-2 px-4 my-6 text-md bg-slate-300 dark:bg-slate-800 inset-1 border-2 border-slate-500 dark:border-slate-700 rounded-xl">
+    <nav className="text-md inset-1 my-6 flex items-center justify-between rounded-xl border-2 border-slate-500 bg-slate-300 py-2 px-4 dark:border-slate-700 dark:bg-slate-800">
       <Link
         href="/"
         aria-label="home"
@@ -36,7 +36,7 @@ function NavBar() {
             <Link
               key={link.title}
               href={link.href}
-              className="rounded font-medium text-gray-900 dark:text-gray-100 sm:p-3 hover:bg-slate-400 dark:hover:bg-gray-600 hover:animate-wiggle"
+              className="rounded font-medium text-gray-900 hover:animate-wiggle hover:bg-slate-400 dark:text-gray-100 dark:hover:bg-gray-600 sm:p-3"
             >
               {link.title}
             </Link>
