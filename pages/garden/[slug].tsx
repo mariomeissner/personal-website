@@ -1,7 +1,7 @@
 import { allEntries } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 
-import { MDXRenderer } from '@/components/MDXComponents'
+import { MDXRenderer } from '@/components/MDXRenderer'
 import PageTitle from '@/components/PageTitle'
 import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 

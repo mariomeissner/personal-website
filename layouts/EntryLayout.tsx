@@ -1,7 +1,7 @@
 import type { Blog, Entry } from 'contentlayer/generated'
 import { ReactNode } from 'react'
 
-import Image from '@/components/Image'
+import MarkdownImage from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import PageWrapper from '@/components/PageWrapper'
@@ -60,7 +60,7 @@ export default function PostLayout({ content, next, prev, children }: Props) {
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 text-justify dark:prose-dark">
+              <div className="dark:prose-dark prose max-w-none pt-10 pb-8 text-justify">
                 {children}
               </div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">

@@ -1,7 +1,7 @@
 import { allBlogs } from 'contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 
-import { MDXRenderer } from '@/components/MDXComponents'
+import { MDXRenderer } from '@/components/MDXRenderer'
 import PageTitle from '@/components/PageTitle'
 import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
@@ -37,7 +37,14 @@ export default function Blog({ post, prev, next }: InferGetStaticPropsType<typeo
   return (
     <>
       {post && post.body.code && 'draft' in post && post.draft !== true ? (
-        <MDXRenderer code={post.body.code} />
+        <div className="divide-y">
+          <h1 className="py-6 text-center text-4xl font-bold leading-10 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-none md:text-5xl">
+            {post.filename}
+          </h1>
+          <div className="prose prose-slate pt-8 pb-8 dark:prose-invert max-w-none">
+            <MDXRenderer code={post.body.code} />
+          </div>
+        </div>
       ) : (
         <div className="mt-24 text-center">
           <PageTitle>

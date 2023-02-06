@@ -3,7 +3,7 @@ import remarkExtractFrontmatter from './lib/remark-extract-frontmatter'
 import remarkImgToJsx from './lib/remark-img-to-jsx'
 import { extractTocHeadings } from './lib/remark-toc-headings'
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
-import GithubSlugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import path from 'path'
 import readingTime from 'reading-time'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -11,15 +11,13 @@ import rehypeCitation from 'rehype-citation'
 import rehypeKatex from 'rehype-katex'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismPlus from 'rehype-prism-plus'
-// Rehype packages
 import rehypeSlug from 'rehype-slug'
 import remarkFootnotes from 'remark-footnotes'
-// Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
+import wikiLinkPlugin from 'remark-wiki-link'
 
 const root = process.cwd()
-const slugger = new GithubSlugger()
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -27,7 +25,7 @@ const computedFields: ComputedFields = {
   filename: { type: 'string', resolve: (doc) => doc._raw.flattenedPath.split('/').reverse()[0] },
   slug: {
     type: 'string',
-    resolve: (doc) => slugger.slug(doc._raw.flattenedPath.split('/').reverse()[0]),
+    resolve: (doc) => slug(doc._raw.flattenedPath.split('/').reverse()[0]),
   },
 }
 
@@ -101,6 +99,14 @@ export default makeSource({
       [remarkFootnotes, { inlineNotes: true }],
       remarkMath,
       remarkImgToJsx,
+      [
+        wikiLinkPlugin,
+        {
+          pageResolver: (page) => [slug(page)],
+          hrefTemplate: (permalink) => `/garden/${permalink}`,
+          // permalinks: []
+        },
+      ],
     ],
     rehypePlugins: [
       rehypeSlug,

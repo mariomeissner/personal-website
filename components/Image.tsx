@@ -1,5 +1,9 @@
 import NextImage, { ImageProps } from 'next/image'
 
-const Image = ({ ...rest }: ImageProps) => <NextImage {...rest} />
+const MarkdownImage = ({ ...rest }: ImageProps) => (
+  <div className="flex items-center justify-center">
+    <NextImage {...rest} className="max-w-lg" />
+  </div>
+)
 
-export default Image
+export default MarkdownImage

@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import Image from './Image'
+import MarkdownImage from './Image'
 import CustomLink from './Link'
 import { BlogNewsletterForm } from './NewsletterForm'
 import Pre from './Pre'
@@ -11,7 +11,7 @@ import React from 'react'
 import { coreContent } from '@/lib/utils/contentlayer'
 
 export const MDXComponents = {
-  Image,
+  Image: MarkdownImage,
   TOCInline,
   a: CustomLink,
   pre: Pre,
