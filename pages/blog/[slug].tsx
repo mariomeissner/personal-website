@@ -41,8 +41,10 @@ export default function Blog({ post, prev, next }: InferGetStaticPropsType<typeo
           <h1 className="py-6 text-center text-4xl font-bold leading-10 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-none md:text-5xl">
             {post.filename}
           </h1>
-          <div className="prose prose-slate pt-8 pb-8 dark:prose-invert max-w-none">
-            <MDXRenderer code={post.body.code} />
+          <div className="flex flex-col items-center">
+            <div className="prose prose-slate max-w-xl pt-8 pb-8 dark:prose-invert">
+              <MDXRenderer code={post.body.code} />
+            </div>
           </div>
         </div>
       ) : (
