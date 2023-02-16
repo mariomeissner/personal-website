@@ -15,8 +15,9 @@ export default function About({ about }: InferGetStaticPropsType<typeof getStati
   return (
     <>
       <PageSEO title={`Home - ${about.name}`} description={`Home page of ${about.name}`} />
-      <div className="flex items-start space-y-6 space-x-6 ">
-        <div className="flex flex-col items-center pt-8 text-center">
+      <div className="flex flex-col items-center justify-center space-y-6 space-x-6 lg:flex-row lg:items-start">
+        {/* Left Column */}
+        <div className="flex min-w-fit flex-col items-center py-6 px-2 text-center">
           <Image src={profile_photo} className="h-48 w-48 rounded-full" alt="avatar" />
           <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">{about.name}</h3>
           <div className="text-gray-500 dark:text-gray-400">{about.occupation}</div>
@@ -27,6 +28,7 @@ export default function About({ about }: InferGetStaticPropsType<typeof getStati
             <SocialIcon kind="twitter" href={about.twitter} />
           </div>
         </div>
+        {/* Right Column */}
         <div className="prose prose-slate pb-8 dark:prose-invert">
           <MDXRenderer code={about.body.code} />
         </div>
